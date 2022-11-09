@@ -106,27 +106,48 @@ body {
 @media screen and (max-width: 1100px) {
   body {
     display: grid;
-    grid-template-columns: 1;
+    grid-template-columns: [column1-start] 100% [column1-end];
     grid-template-rows: repeat(4, auto);
-    grid-template-areas: 
-    fill this in
+    grid-template-areas:
+    'first'
+    'second'
+    'third'
+    'fourth'
   }
   
+  .header {
+    grid-area: first;
+  }
+
   .header__title {
     font-size: 2rem;
   }
+
   .nav__container {
+    grid-area: second;
+    margin: auto;
     width: 80vw;
     min-width: 300px;
     grid-template-columns: repeat(4, 1fr);
   }
+
   .nav__link, .nav__link--active {
     text-decoration: underline;
   }
+
   .nav__link--active {
     padding: 0;
   }
+
   .nav__link::after, .nav__link--active::after {
     display: none;
+  }
+ 
+  .img_card__container {
+    grid-area: third;
+  }
+
+  .footer {
+    grid-area: fourth;
   }
 }
